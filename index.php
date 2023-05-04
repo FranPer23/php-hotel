@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Hotel</title>
-</head>
 <?php
 
 $hotels = [
@@ -51,13 +42,45 @@ $hotels = [
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <title>PHP Hotel</title>
+</head>
+
+
 <body>
-    <h1>Lista Hotel</h1>
+    <h1 class="text-center">Lista Hotel</h1>
     <div class="container">
-        <?php foreach ($hotels as $hotel) {
-            var_dump($hotels);
-        }
-        ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Parcheggio</th>
+                    <th scope="col">Distanza dal centro</th>
+                    <th scope="col">Vote</th>
+                </tr>
+            </thead>
+            <?php foreach ($hotels as $key => $value) { ?>
+                <tbody>
+                    <tr>
+                        <th scope="row"><?php echo $value["name"]; ?></th>
+                        <td><?php echo $value["description"]; ?></td>
+                        <td><?php echo $value["parking"]; ?></td>
+                        <td><?php echo $value["distance_to_center"]; ?></td>
+                        <td><?php echo $value["vote"]; ?></td>
+                    </tr>
+                </tbody>
+            <?php } ?>
+        </table>
+
     </div>
 
 </body>
